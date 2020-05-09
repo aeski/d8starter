@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Theme override to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess_maintenance_page()
+ */
+#}
+{#
+<header role="banner">
+  {% if logo %}
+    <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
+      <img src="{{ logo }}" alt="{{ 'Home'|t }}"/>
+    </a>
+  {% endif %}
+
+  {% if site_name or site_slogan %}
+    {% if site_name %}
+      <h1>
+        <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+      </h1>
+    {% endif %}
+
+    {% if site_slogan %}
+      <div>{{ site_slogan }}</div>
+    {% endif %}
+  {% endif %}
+</header>
+
+<main role="main">
+  {% if title %}
+    <h1>{{ title }}</h1>
+  {% endif %}
+
+  {{ page.highlighted }}
+
+  {{ page.content }}
+</main>
+
+{% if page.sidebar_first %}
+  <aside role="complementary">
+    {{ page.sidebar_first }}
+  </aside>
+{% endif %}
+
+{% if page.sidebar_second %}
+  <aside role="complementary">
+    {{ page.sidebar_second }}
+  </aside>
+{% endif %}
+
+{% if page.footer %}
+  <footer role="contentinfo">
+    {{ page.footer }}
+  </footer>
+{% endif %}
+#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{#
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cave Animal of the Year coming soon</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link href="tools/style-temp.css" rel="stylesheet" type="text/css" />
+#}
+{# <link href="tools/960.css" rel="stylesheet" type="text/css" /> #}
+<!--
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/Copse_400.font.js"></script>
+<script type="text/javascript" src="js/Gabriola_400.font.js"></script>
+<script type="text/javascript">
+	Cufon.replace('h1', {fontFamily: 'Copse', hover:true})
+	Cufon.replace('p.info', {fontFamily: 'Gabriola', hover:true})
+</script>
+-->
+<body>
+	<div id="page">
+		<div id="content">
+
+		</div>
+	</div>
+</body>
+</html>

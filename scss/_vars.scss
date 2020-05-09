@@ -1,0 +1,114 @@
+//-----------------------------
+//		Other
+//-----------------------------
+$transition-speed: 0.2s;
+
+
+//$background-stop1: silver;
+//-----------------------------
+//		Paths
+//-----------------------------
+$images: "/themes/custom/d8starter/images";
+$fonts: "/themes/custom/d8starter/fonts";
+
+//-----------------------------
+//		Widths
+//-----------------------------
+$first-sidebar-width: 330px;
+$second-sidebar-width: 200px;
+//$page-width: 1000px;
+
+//-----------------------------
+//		Breakpoints
+//-----------------------------
+$desktop: 1200px;
+$laptop: 1024px;
+$tablet: 900px; //This is set to page width by default
+$mobile: 540px;
+
+
+//-----------------------------
+//		Heights
+//-----------------------------
+$navigation-height: inherit;
+$footer-height: 155px;
+
+
+//-----------------------------
+//		Padding
+//-----------------------------
+$desktop-padding: 40;
+$laptop-padding: 40;
+$tablet-padding: 40;
+$mobile-padding: 20;
+
+//$desktop-wrapper-width: 1000px;
+//$laptop-wrapper-width: 900px;
+//$tablet-wrapper-width: 800px;
+//$mobile-wrapper-width: 100%;
+
+$desktop-wrapper-width: 1200px;
+$laptop-wrapper-width: 1000px;
+$tablet-wrapper-width: 800px;
+$mobile-wrapper-width: 100%;
+
+//-----------------------------
+//		Backgrounds
+//-----------------------------
+$border: 1px dotted #888;
+
+$header-bg: #fff;
+$footer-bg: #fff;
+$sidebar-first-bg: #fff;
+$sidebar-second-bg: #fff;
+$navigation-bg: #fff;
+
+
+// Background colours for user login and password reset pages.
+//$login-background-stop1: ;
+//$login-background-stop2: ;
+//$login-background-stop1-dark: ;
+//$login-background-stop2-dark: ;
+//$login-highlight-colour: red;
+
+
+//-----------------------------
+//		Fonts
+//-----------------------------
+$body-font: 'Raleway', "Helvetica Neue", helvetica, Arial, sans-serif;
+$title-font: 'Open Sans', "Helvetica Neue", helvetica, Arial, sans-serif;
+$monospace-font: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+//$icon-font: 'Font Awesome 5 Free';
+
+$fw-light: 200;
+$fw-normal: 400;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-black: 900;
+
+
+//-----------------------------
+//		Colors
+//-----------------------------
+$pink: #FF7376;
+$grey: #333;
+$pink: #DF7455;
+$pink-light: #F2C6C8;
+$green: #2AD03D;
+//$orange: #FFAB52;
+$orange: #F99C24; // Kelly Spec
+$blue: #4AB6E2;
+$blue: #00A0DD; // Kelly Spec
+$teal: #42A495;
+
+$primary-colour: #2D276F;
+$primary-button-colour: $primary-colour;
+
+$link-colour: $blue;
+$visited-link-color: $link-colour;
+$active-link-color: red;
+$main-text-color: #3d3d3d;
+$header-text-color: #000;
+$selection-text-color: #fff;
+$selection-bg-color: #333;
+

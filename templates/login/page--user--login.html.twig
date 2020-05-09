@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Better Login theme implementation to display a login page.
+ *
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - url: The base URL path of the Drupal website.
+ * - logo: Logo path of Drupal website.
+ * - site_name: Site name of Drupal website.
+ * - title: Title of a page.
+ * - register_url: A registration url of Drupal website.
+ *
+ *
+ * Regions:
+ * - page.highlighted: Items for the highlighted region.
+ * - page.content: The main content of the current page.
+ *
+ * @see betterlogin_preprocess_betterlogin()
+ */
+#}
+<div id="login-wrapper" class="login">
+	<a id="logo" href="/" title="logo" alt="Site Logo">{{ source(directory ~ '/images/logo.svg') }}</a>
+
+  <div id="middle_part">
+{#     <h2 class="title">{{ title }}</h2> #}
+
+{#     {{ page.highlighted }} #}
+
+    {{ page.messages }}
+
+    {{ page.content }}
+  </div>
+
+  <div id="bottom_part">
+    <div class="password_link">
+      <a href="{{ path('user.pass') }}">{{ 'Forgot your password?'|t }}</a>
+    </div>
+
+    {% if register_url %}
+      <div class="register_link">
+        <a href="{{ register_url }}">{{ 'Create an account'|t }}</a>
+      </div>
+    {% endif %}
+
+{#
+    <div class="back_link">
+      <a href="{{ url('<front>') }}">&larr; {{ 'Back'|t }} {{ site_name }}</a>
+    </div>
+#}
+  </div>
+</div>

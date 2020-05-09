@@ -1,0 +1,621 @@
+////////////////////////////////////////////////////////////////////////////////
+// Module Styles
+// --------------------
+// This partial defines the styles for modules. Most custom
+// styling should go here.
+//
+// Styling of standard HTML elements (paragraphs, headers, lists, etc...) can
+// be found in _base.scss.
+//
+// Positioning of major page elements can be found in _layout.scss.
+////////////////////////////////////////////////////////////////////////////////
+
+//@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800');
+// Title Font
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700,800&display=swap');
+// Body Font
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400&display=swap');
+//These Url's need changing to latest google api's.
+
+//------------------------------------
+//		Extends
+//------------------------------------
+%vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%clearfix{
+ 	&:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+%reset {
+	margin: 0;
+	padding: 0;
+}
+
+%transition-color{
+	transition: color, $transition-speed;	
+}
+
+.hide{
+	display: none;
+}
+
+
+
+//------------------------------------------------------------------------
+//		Typography
+//------------------------------------------------------------------------
+%font-smoothing{
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+	font-size: 62.5%; /* Sets up the Base 10 stuff */
+	-webkit-text-size-adjust: 100%;  // Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+	-ms-text-size-adjust: 100%;
+}
+
+body{
+	font-family: $body-font;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	@extend %font-smoothing;
+}
+
+/*
+em {
+   font-family: 'Quasimoda-Italic', arial, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+}
+*/
+
+h1, h2, h3, h4, h5 { 
+	font-family: $title-font; 
+	font-weight: normal; 
+	font-style: normal;
+}
+
+h1{
+	font-size: 4.5rem;
+	line-height: 4.8rem;
+	margin: 2.4rem 0 2.4rem 0;
+	font-weight: 800;
+}
+
+h2{
+	font-size: 3.6rem;
+	line-height: 1em;
+	text-transform: uppercase;
+	font-weight: 800;
+}
+
+h3{
+	font-size: 1.6rem;
+	margin-bottom: 2rem;
+	margin-top: 1.4rem;
+	color: #000;
+	margin-bottom: 10px;
+	font-weight: $fw-bold;
+}
+
+html, button, input, select, textarea {
+//	font-family: $body-font;
+	color: $main-text-color;
+}
+
+a, a:visited{
+	color: $link-colour;
+	text-decoration: none;
+	
+	&:hover{
+		text-decoration: underline;
+	}
+	
+	&:focus{
+		border: none;
+		outline: none;
+	}
+}
+
+p{
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+p > a{
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+
+	-ms-word-break: break-all;
+	/* This is the dangerous one in WebKit, as it breaks things wherever */
+	word-break: break-all;
+	/* Instead use this non-standard one: */
+	word-break: break-word;
+
+	/* Adds a hyphen where the word breaks, if supported (No Blink) */
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+.text-formatted{
+	line-height: 2.5rem;
+}
+
+
+
+
+//------------------------------------------------------------------------
+//		Small tweaks
+//------------------------------------------------------------------------
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+//------------------------------------------------------------------------
+//		BODY / HTML
+//------------------------------------------------------------------------
+body{
+	//width: 100vw;
+	//height: 100vh;
+	background: white;
+}
+
+#page{
+	min-height: 100vh;
+	//display: flex;
+	//flex-direction: row;
+	//flex-wrap: wrap;
+}
+
+
+//------------------------------------------------------------------------
+//		Structure
+//------------------------------------------------------------------------
+.wrapper{
+	padding: 25px 20px;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+header,
+main,
+footer{
+	flex-basis: 100%;
+}
+
+header{ 
+	.wrapper{
+		display: flex;
+	}
+	
+	.logo{
+	max-width: 200px;
+		
+		
+		svg{
+			@extend %vertical-center;
+		}
+//		flex: 1;
+	}
+	
+	.region-main-menu{
+//		flex: 5;
+	}
+}
+
+
+footer{
+	align-self: flex-end;
+	
+/*
+	.wrapper{
+		display: flex;
+		justify-content: space-between;
+		flex-flow: row wrap;
+		
+		> div{
+			min-width: 140px;
+			margin-bottom: 30px;
+		}	
+	}
+*/
+}
+
+// For sidebar layout
+main{
+	.wrapper{
+		display: flex;
+		flex-direction: column;
+	
+		@include breakpoint($mobile){
+		flex-direction: row;
+		}
+	}	
+}
+
+.left-sidebar{
+	flex: 1;
+	order: 1;
+}
+	
+.main-content{
+	flex: 2.5;
+	order: 2;
+}
+
+
+//------------------------------------------------------------------------
+//		Header
+//------------------------------------------------------------------------
+header{
+	position: relative;
+	
+	.wrapper{
+		display: flex;
+		flex-direction: row wrap;
+		z-index: 2
+	}
+}
+
+.banner-image{
+	background: url('#{$images}/header-bg.jpg') center 40% no-repeat;
+	background-size: cover;
+	height: 300px;
+	position: relative;
+	
+	.image-overlay{
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		top:0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(#333,.8);
+	}
+}
+
+.region-header{
+	margin-left: auto;
+}
+
+.logo{
+	max-width: 200px;
+	width: 100%;
+	display: block;
+			
+	img{
+		width: 100%;
+		height: auto;
+	}
+}
+
+m-burger{
+	margin-left: auto;
+}
+
+.site-title{
+	font-family: $title-font;
+	font-size: 3.6rem;
+	text-transform: uppercase;
+	color: $blue;
+	display: block;
+	line-height: 3.9rem;
+	
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+@include breakpoint($mobile){
+	.c-hamburger{
+		display: none;
+	}
+}
+
+//---------------------------
+// Hamburger
+//---------------------------
+#hamburger {
+    margin-left: auto;
+    
+	--mb-bar-height: 3px;
+	--mb-button-size: 50px;
+	--mb-bar-width: .8;
+
+	b{
+		border-radius: 0px;
+	}
+	
+	@include breakpoint($mobile){
+	//	display: none;
+	}
+}
+
+// Change the Admin toolbar padding to support MMenu if it is being used. 
+body.mm-wrapper{
+//	
+}
+
+
+
+//------------------------------------------------------------------------
+//		Mobile Menu
+//------------------------------------------------------------------------
+$yellow: yellow;
+
+#mmenu-custom{
+	//background: $blue;
+	--mm-color-background: #2D276F;
+		
+	.mmenu-header{
+		padding: 20px;
+		
+		svg path{
+			fill: #fff;
+		}
+	}
+	
+	.mm-menu{
+	
+	}
+
+	a,
+	a:active,
+	a:hover,
+	a:link,
+	a:visited,
+	a.mm-navbar__title{
+		//font-weight: 400;
+		color: $yellow;
+	}
+	
+	ul.mm-listview{
+		li.menu__item{
+			a{
+				color: #fff;
+		//		font-weight: $fw-semibold;
+				padding: 15px;
+				
+				&:active{
+					color: $yellow;
+				}
+			}
+		}
+	}
+	
+	// For submenu chevrons
+	.mm-btn::after, .mm-btn::before{
+		border-color: $yellow;
+	}
+	
+	// Moving divider across
+	.mm-listitem::after{
+		left: 0;
+		//border-style: dashed;
+	//	border-color: $yellow;
+		border-width: 1px;
+	}
+}
+
+//------------------------------------------------------------------------
+//		Main Menu
+//------------------------------------------------------------------------
+.region-main-menu{
+	margin-left: auto;
+	//width: 100%;
+	//position: absolute;
+	//bottom: -22px;
+	//left: 0;
+	//display: none;
+	
+	nav{
+		flex-grow: 1;
+	}
+	
+	@include breakpoint(720px){
+		display: flex;
+	}
+}
+
+//#block-sass-main-menu,
+//#block-mainnavigation{
+			
+	//ul.menu,
+	ul#superfish-main.sf-menu{
+		@extend %reset;
+		//background: $purple;
+		height: 45px;
+		display: flex;
+		
+		> li:hover > ul,
+		> li.sfHover > ul{
+			top: 45px;
+		}
+		
+		.sf-sub-indicator{
+			display: none;
+		}
+		
+		.sf-sub-indicator::after{
+			content: '+';
+			line-height: .8em;
+		}
+		
+		// Top Level
+		> li{
+			padding: 0;
+			flex-grow: 1;
+			display: flex;
+			
+			&.menu-item--collapsed{
+				list-style: none;
+				list-style-image: none;
+			}
+			
+			a{
+				//color: #fff;
+				text-decoration: none;
+				//background: none;
+				//transition: background .3s;
+				font-size: 1.3rem;
+				font-weight: $fw-bold;
+				text-transform: uppercase;
+				
+				&:hover{
+					//background: red;
+				}
+			}
+			
+			> a{
+				padding: 0 10px;
+				flex-grow: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				
+				.sf-sub-indicator{
+					right: 2rem;
+				}
+			}
+			
+			> ul{
+				width: 14em;
+				
+				li{
+					a{
+						padding: 8px 15px;
+						border-bottom: 1px solid orange;
+						line-height: 1.2em;
+					}
+				}
+			}
+			
+			&.active-trail > a,
+			a.is-active{
+					//background: purple;
+					font-weight: bold;
+			}
+		}
+		
+		// link to search page		
+		li#main-menu-link-content7b6e343b-011d-4550-8019-21ce567b30ed,
+		li#main-menu-link-content3cb1a618-c6ad-4392-ab03-fd5dc5d0405a{
+			a{
+				text-indent: -987em;
+				background: url('#{$images}/icon-search.svg') no-repeat center center;
+				background-size: 40% auto;
+				//background: red;
+				
+				&:hover{
+					//background-color: purple;
+				}
+			}
+			
+			@include breakpoint($laptop){ 
+				display: none !important;
+			}
+		}
+		
+		// Hide children items on Media releases and Policy
+		li#main-menu-link-content1a063d44-6617-4b69-909a-ec02e5158698 > ul,
+		li#main-menu-link-content2fcbb4e0-d825-41e0-a49f-efe59d4705fe > ul{
+			display: none !important;
+		}
+	}	
+//}
+
+
+//------------------------------------------------------------------------
+//		Homepage
+//------------------------------------------------------------------------
+.homepage-content{
+	flex-basis: 100%;
+}
+
+
+//------------------------------------------------------------------------
+//		Main Content
+//------------------------------------------------------------------------
+main{
+	>.wrapper{
+		.main-content{
+			padding: 0 25px;
+		}
+	}
+}
+
+
+//------------------------------------------------------------------------
+//		Sidebar
+//------------------------------------------------------------------------
+aside{
+	
+}
+
+.left-sidebar{
+	margin-right: 25px;
+	padding-right: 25px;
+}
+
+
+//------------------------------------------------------------------------
+//		Footer
+//------------------------------------------------------------------------
+footer{
+	>.wrapper{
+	//	display: flex;
+	}
+	
+	.region-footer{
+		flex-basis: 100%;
+	}
+	
+	background: rgba(#000000, .5);
+	
+	h3{
+		font-weight: 700;
+		border-bottom: 1px solid rgba($green,.3);
+		display: inline-block;
+		color: $green;
+		margin-bottom: 20px;
+		margin-top: 0;
+	}
+		
+	a{
+		color: $green;
+	}
+	
+	p{
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+	}
+	
+	.copyright{
+		flex-basis: 100%;
+		text-align: center;
+		color: #eee;
+		font-size: 1rem;
+	}
+}

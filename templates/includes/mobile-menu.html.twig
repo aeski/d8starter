@@ -1,0 +1,99 @@
+{# <input id="mobileNavToggle" type="checkbox" name="mobile-nav-toggle"> #}
+
+{# Custom menu format to suite mmenu mobile menu #}
+{# Get menu items #}
+{% set items = simplify_menu('main') %}
+
+<script type="text/javascript">
+document.addEventListener(
+	"DOMContentLoaded", () => {
+		const menu = new Mmenu( "#mmenu-custom" );
+		const api = menu.API;
+		
+	    new Mmenu( "#mmenu-custom", {
+			"slidingSubmenus": true,
+			"extensions": [
+				"pagedim-black",
+				"position-right"
+			],
+			"navbars": [{
+				"position": "top",
+	            "content": [
+					"<div class='mmenu-header' href='/'></div>"
+					]
+				},
+				{
+				"position": "bottom",
+				"content": [
+					"<div class='mmenu-footer'></div>"
+					]
+				},
+				{
+				"position": "top",
+				"content": [
+					"<a class='link twitter' href='https://twitter.com/womenshealthtas?lang=en'><i class='fa fa-twitter'></i>twit</a>",
+					"<a href='tel:62313212'><i class='fa fa-phone'></i>call</a>",
+					"<a class='link facebook' href='https://www.facebook.com/Womens-Health-Tasmania-106238739430050/'><i class='fa fa-facebook'></i>facebook</a>"
+				]
+			}]
+		});
+		
+		{# Add logo to mmenu header #}
+		var logo = document.querySelector("header .logo");
+		var logoClone = logo.cloneNode(true);
+		var mmenuHeader = document.querySelector(".mmenu-header");
+		mmenuHeader.appendChild(logoClone);
+		
+		
+		{# Listen to custom button element for firing the mmenu #}
+		document.querySelector( "#hamburger" )
+                .addEventListener(
+                    "click", ( evnt ) => {
+                        evnt.preventDefault();
+                        api.open();
+                    }
+                );
+	
+	}
+	
+);
+</script>
+
+
+
+{% macro menuMacro(menu) -%}
+  <ul>
+    {% for menu_item in menu %}
+      {# Check if this is the active item. #}
+      {% set active = (menu_item.active) ? ' is-active' : '' %}
+
+      {# Check if this item is in the active trail. #}
+      {% set active = active ~ ((menu_item.active_trail) ? ' is-active-trail' : '') %}
+
+      <li class="menu__item{{ active }}">
+        <a href="{{ menu_item.url }}" class="menu__link{{ active }}">{{ menu_item.text }}</a>
+        {% if menu_item.submenu %}
+            {# Since this menu item has a submenu, recall function. #}
+          {{ _self.menuMacro(menu_item.submenu) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{%- endmacro %}
+
+{# Iterate menu tree #}
+<div class="hide">
+	<nav id="mmenu-custom" class="mobile-menu">
+		<ul class="main-menu">
+			{% for menu_item in items.menu_tree %}
+			<li class="menu__item"{{ active }}>
+				<a href="{{ menu_item.url }}">{{ menu_item.text }}</a>
+				{% if menu_item.submenu %}
+				{# Since this menu item has a submenu, recall function. #}
+				{{ _self.menuMacro(menu_item.submenu) }}
+				{% endif %}
+			</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</div>

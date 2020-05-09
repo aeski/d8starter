@@ -1,0 +1,19 @@
+global-styling:
+  css:
+    theme:
+      #css/superfish.css: {}
+      #css/jquery.mmenu.all.css: {}
+      #css/jquery.bxslider.css: {}
+      css/style.min.css: {}
+      css/mburger.css: {}
+      #	css/font-awesome.min.css: {}  
+  js:
+      #js/jquery.bxslider.min.js: {}
+      #js/jquery.cycle.all.js: {}
+      #js/jquery.cycle2.min.js: {}
+      js/mmenu.js: {}
+      #js/mburger.js: {}
+      js/script.js: {}
+      #../../libraries/mmenu/dist/js/jquery.mmenu.min.js: {}
+ # dependencies:
+ # - core/jquery

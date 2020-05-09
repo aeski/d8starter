@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ *
+ * @see template_preprocess_file_link()
+ *
+ * @ingroup themeable
+ */
+#}
+{# <span{{ attributes }}>{{ link }}</span> #}
+{#
+/**
+ * @file
+ * Theme override for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - icon: The icon image representing the file type.
+ *
+ * @see template_preprocess_file_link()
+ */
+#}
+{{ attach_library('classy/file') }}
+
+
+<a class="file" href="{{ file.getFileUri|replace({'public://': '/sites/default/files/'}) }}" >
+	<span {{ attributes }}></span>
+	<span class="file-title">
+	{% if description is not empty %}
+		{{ description }}
+	{% else %}
+		{{ file.getFilename }}
+	{% endif %}
+	</span>
+
+{# {{ link }} #}
+{# {{ file.getMimeType }} #}
+
+
+<span class="file-size">
+{% set bytes = file.size %}
+{% macro bytesToSize(bytes) %}
+{% spaceless %}
+    {% set kilobyte = 1024 %}
+    {% set megabyte = kilobyte * 1024 %}
+    {% set gigabyte = megabyte * 1024 %}
+    {% set terabyte = gigabyte * 1024 %}
+
+    {% if bytes < kilobyte %}
+        {{ bytes ~ ' B' }}
+    {% elseif bytes < megabyte %}
+        {{ (bytes / kilobyte)|number_format(2, '.') ~ ' KB' }}
+    {% elseif bytes < gigabyte %}
+        {{ (bytes / megabyte)|number_format(2, '.') ~ ' MB' }}
+    {% elseif bytes < terabyte %}
+        {{ (bytes / gigabyte)|number_format(2, '.') ~ ' GB' }}
+    {% else %}
+        {{ (bytes / terabyte)|number_format(2, '.') ~ ' TB' }}
+    {% endif %}
+    
+    
+{% endspaceless %}
+
+{% endmacro %}
+
+{# print our file size here #}
+– {{ _self.bytesToSize(bytes) }}
+</span>
+</a>

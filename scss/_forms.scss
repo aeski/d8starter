@@ -1,0 +1,93 @@
+//------------------------------------------------------------------------
+//		Form Styling
+//------------------------------------------------------------------------
+.form-item{
+	> label{
+		display: block;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: .8em;
+		color: #000;
+		font-family: $title-font;
+	}
+	
+	input.form-text,
+	input.form-email,
+	textarea{
+		padding: .5em;
+		border: 1px solid #ccc;
+		
+		&:focus{
+			outline: none;
+			box-shadow: none;
+//			border: inherit;
+		}
+	}
+	
+	&.webform-element--title-inline{
+		> label{
+			display: inline-block;
+			width: 130px;
+		}
+		
+		// Textarea labels come to the top, other stay centred.
+		&.form-type-textarea > label{
+			vertical-align: top;
+		}
+		
+		.form-textarea-wrapper{
+			display: inline-block;
+		}
+	}
+	
+	
+}
+
+// Submit button
+.button--primary{
+	border: none;
+	background: $primary-button-colour;
+	transition: background $transition-speed;
+	color: #fff;
+	padding: .5em 1em;
+	font-weight: normal;
+	
+	&:hover{
+		background: lighten($primary-button-colour,10%);	
+	}
+}
+
+
+
+//------------------------------------------------------------------------
+//		Checkboxes
+//------------------------------------------------------------------------
+input.form-checkbox{
+/*
+	position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+*/
+	appearance: none;
+	-webkit-appearance: none;
+	width: 13px;
+	height: 13px;
+	
+	outline: 2px solid $pink;
+	background: none;
+	
+	&:checked{
+		background: $pink;
+	}
+	
+	~ label{
+		font-size: 1.4rem;
+		padding-left: 10px;
+	}
+}
+
+span.fieldset-legend{
+	@extend h3;
+}
