@@ -29,13 +29,12 @@
         "drupal/simplify_menu": "^2.0"
 
     },
-    "repositories": {
-    "drupal": {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    }
+    "repositories": [
+    {"type": "composer",
+    "url": "https://packages.drupal.org/8"
+    },
     {
-	    "type": "vcs",
+	        "type": "vcs",
         "url": "https://github.com/aeski/d8starter.git",
         "no-api": true
     }
