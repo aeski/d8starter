@@ -1,0 +1,44 @@
+{
+    "name": "aeski/d8starter",
+    "description": "d8starter theme for Drupal 8",
+    "type": "drupal-theme",
+    "homepage": "https://aeski.net/adminski",
+    "authors": [
+        {
+            "name": "Kit Whyte",
+            "homepage": "https://www.aeski.net",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://aeski.net"
+    },
+    "license": "CC0 1.0 Universal",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/pathauto": "^1.5",
+        "drupal/antibot": "^1.2",
+        "drupal/filefield_paths": "^1.0@beta",
+		"drupal/linkit": "^4.3",
+        "drupal/webform": "^5.11",
+        "drupal/obfuscate_email": "^1.1",
+        "drupal/ctools": "^3.2",
+        "drupal/adminimal_admin_toolbar": "^1.11",
+        "drush/drush": "^10.2",
+	    "drupal/page_specific_class": "^1.0",
+        "drupal/simplify_menu": "^2.0"
+
+    },
+    "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+     {
+	        "type": "vcs",
+            "url": "https://github.com/aeski/adminski.git",
+            "no-api": true
+        }
+    
+  }
+}
