@@ -15,19 +15,7 @@
     },
     "license": "CC0 1.0 Universal",
     "minimum-stability": "dev",
-    "require": {
-        "drupal/pathauto": "^1.5",
-        "drupal/antibot": "^1.2",
-        "drupal/filefield_paths": "^1.0@beta",
-	    "drupal/linkit": "^4.3",
-        "drupal/webform": "^5.11",
-        "drupal/obfuscate_email": "^1.1",
-        "drupal/ctools": "^3.2",
-        "drupal/adminimal_admin_toolbar": "^1.11",
-        "drush/drush": "^10.2",
-	    "drupal/page_specific_class": "^1.0",
-        "drupal/simplify_menu": "^2.0"
-    },
+    "require": [],
     "repositories": {
     "drupal": {
       "type": "composer",
