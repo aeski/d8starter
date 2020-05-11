@@ -15,11 +15,17 @@
     },
     "license": "CC0 1.0 Universal",
     "minimum-stability": "dev",
-    "require": [],
-    "repositories": {
-    "drupal": {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    }
-  }
+    "require": {
+        "aeski/adminski": "^1.0",
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aeski/adminski"
+        }
+    ]
 }
