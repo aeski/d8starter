@@ -28,10 +28,10 @@
 	    "drupal/page_specific_class": "^1.0",
         "drupal/simplify_menu": "^2.0"
     },
-    "repositories": [
-      {
+    "repositories": {
+    "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-      }
-    ]
+    }
+  }
 }
