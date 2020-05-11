@@ -1,10 +1,11 @@
 name: D8 Template subtheme starter/ Custom Theme
 type: theme
 description: 'Custom Aeski Drupal 8 subtheme'
-package: core
 base theme: adminski
 screenshot: images/screenshot.png
 logo: 'images/logo.svg'
+version: '8.x-1.0'
+core: '8.x'
 
 #Load theme css into wysiwyg
 ckeditor_stylesheets:
@@ -27,8 +28,4 @@ regions:
   sidebar_second: 'Right Sidebar'  
   footer: 'Footer'
 
-# Information added by Drupal.org packaging script on 2016-04-06
-version: '8.x-1.0'
-core: '8.x'
-project: 'drupal'
-datestamp: 1459901058
+
