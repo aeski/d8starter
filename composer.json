@@ -16,7 +16,7 @@
     "license": "CC0 1.0 Universal",
     "minimum-stability": "dev",
     "require": {
-        "aeski/adminski": "^1.0",
+        "aeski/adminski": "^1.0"
     },
     "repositories": [
         {
