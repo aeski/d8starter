@@ -5,9 +5,10 @@
 // all pages.
 ////////////////////////////////////////////////////////////////////////////////
 
-@import "mixins"; // Imports custom mixins.
-@import "vars"; // Imports default variables and mixins.
-@import "forms";   // Defines styling for login pages.
-@import "mmenu/mmenu";   // Defines Mobile Menu (mmenu) repsonsive menu system.
-@import "modules";   // Defines module styles.
-@import "print";    // Defines styles for printing.
+@import "_mixins"; // Imports custom mixins.
+@import "_variables"; // Imports default variables and mixins.
+@import "_typography";   // Defines styling for login pages.
+@import "_forms";   // Defines styling for login pages.
+//@import "mmenu/mmenu";   // Defines Mobile Menu (mmenu) repsonsive menu system.
+@import "_modules";   // Defines module styles.
+@import "_print";    // Defines styles for printing.

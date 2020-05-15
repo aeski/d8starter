@@ -6,6 +6,7 @@ global-styling:
       #css/jquery.bxslider.css: {}
       css/style.min.css: {}
       css/mburger.css: {}
+      css/mmenu.css: {}
       #	css/font-awesome.min.css: {}  
   js:
       #js/jquery.bxslider.min.js: {}
@@ -15,5 +16,11 @@ global-styling:
       #js/mburger.js: {}
       js/script.js: {}
       #../../libraries/mmenu/dist/js/jquery.mmenu.min.js: {}
- # dependencies:
- # - core/jquery
+#  dependencies:
+#  - core/jquery
+#       
+#       
+# login-styles:
+#   css:
+#     theme:
+#       css/authenticated-styles.css: {}

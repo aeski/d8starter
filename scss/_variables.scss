@@ -1,15 +1,14 @@
+//----------------------------------------------
+//		Asset Paths use image('hero.jpg') etc.
+//----------------------------------------------
+$asset-base-path: '../';
+$image-path: 'images';
+$font-path: 'fonts';
+
 //-----------------------------
 //		Other
 //-----------------------------
 $transition-speed: 0.2s;
-
-
-//$background-stop1: silver;
-//-----------------------------
-//		Paths
-//-----------------------------
-$images: "/themes/custom/d8starter/images";
-$fonts: "/themes/custom/d8starter/fonts";
 
 //-----------------------------
 //		Widths
@@ -72,24 +71,12 @@ $navigation-bg: #fff;
 //$login-highlight-colour: red;
 
 
-//-----------------------------
-//		Fonts
-//-----------------------------
-$body-font: 'Raleway', "Helvetica Neue", helvetica, Arial, sans-serif;
-$title-font: 'Open Sans', "Helvetica Neue", helvetica, Arial, sans-serif;
-$monospace-font: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
-//$icon-font: 'Font Awesome 5 Free';
-
-$fw-light: 200;
-$fw-normal: 400;
-$fw-semibold: 600;
-$fw-bold: 700;
-$fw-black: 900;
 
 
 //-----------------------------
 //		Colors
 //-----------------------------
+$light-grey: #eee;
 $pink: #FF7376;
 $grey: #333;
 $pink: #DF7455;
@@ -100,6 +87,9 @@ $orange: #F99C24; // Kelly Spec
 $blue: #4AB6E2;
 $blue: #00A0DD; // Kelly Spec
 $teal: #42A495;
+
+
+$main-nav-colour: #000;
 
 $primary-colour: #2D276F;
 $primary-button-colour: $primary-colour;

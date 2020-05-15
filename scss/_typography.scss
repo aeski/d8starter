@@ -1,0 +1,102 @@
+//-------------------------------------------
+//		@imports & @font-face's
+//-------------------------------------------
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700,800&display=swap');
+// Body Font
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400&display=swap');
+
+//-----------------------------
+//		Fonts
+//-----------------------------
+$body-font: 'Raleway', "Helvetica Neue", helvetica, Arial, sans-serif;
+$title-font: 'Open Sans', "Helvetica Neue", helvetica, Arial, sans-serif;
+$monospace-font: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+//$icon-font: 'Font Awesome 5 Free';
+
+%font-smoothing{
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+//-------------------------------------------
+//	Typography
+//-------------------------------------------
+$base-line-height: 2.6rem;
+
+html {
+	font-size: 62.5%; /* Sets up the Base 10 stuff */
+	-webkit-text-size-adjust: 100%;  // Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+	-ms-text-size-adjust: 100%;
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	-webkit-text-size-adjust: none;
+}
+
+#mmenu-custom,
+body.cke_editable,
+#page{
+	font-size: 1.8rem;
+	font-family: $body-font, serif;
+	font-weight: 400;
+//	font-size: 100%;
+	line-height: $base-line-height;
+}
+
+h1{
+	font-family: $title-font;
+	font-size: 48px;
+	font-weight: 300;
+	line-height: calc(#{$base-line-height} * 2);
+	//text-transform: uppercase;
+	font-weight: 900;
+	color: #000;
+	@extend %font-smoothing;
+}
+
+h2{
+	font-family: $title-font;
+	font-weight: 500;
+	@extend %font-smoothing;
+	color: #000;
+	font-size: 25px;
+	line-height: $base-line-height;
+	margin-bottom: $base-line-height;
+	margin-top: calc(2 * #{$base-line-height});
+}
+
+// H2 based on 2x (48px) line height
+h2{
+	line-height: calc(2 * #{$base-line-height});
+	font-size: 38px;
+}
+
+h3{
+	font-family: $title-font;
+	line-height: $base-line-height;
+	margin: calc(#{$base-line-height} / 2) 0;
+}
+
+p{
+	margin: $base-line-height 0;
+	font-weight: 200;
+	//@extend %font-smoothing;
+}
+
+q{
+	font-weight: 400;
+	
+	&.pullout{
+		display: block;
+		//font-size: 1.5em;
+		line-height: calc(1.5 * #{$base-line-height});
+		font-style: italic;
+		font-size: 2.4rem;
+		line-height: 3.6rem;
+
+	}
+}
+

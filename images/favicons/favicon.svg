@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+<style type="text/css">
+	.circle{fill-rule:evenodd;clip-rule:evenodd;fill:#BDD5D9;}
+	.logotype{clip-path:url(#SVGID_2_); fill:#000000;}
+	.st2{clip-path:url(#SVGID_4_);}
+	
+	 @media (prefers-color-scheme: dark) {
+      .logotype {fill: #ffffff;}
+    }
+</style>
+<g>
+	<path class="circle" d="M175,128c0,27.6-22.4,50-50,50s-50-22.4-50-50s22.4-50,50-50S175,100.4,175,128"/>
+	<g>
+		<defs>
+			<path id="SVGID_1_" d="M213.7,40.1C191.2,16.6,159.7,2,125,2C56.6,2,1,58.5,1,128c0,69.5,55.6,126,124,126
+				c34.7,0,66.2-14.6,88.7-38.1v35.8H249V4.3h-35.3V40.1z M125.5,218C76.7,218,37,177.6,37,128c0-49.6,39.7-90,88.5-90
+				S214,78.4,214,128C214,177.6,174.3,218,125.5,218z"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<g class="logotype">
+			<defs>
+				<rect id="SVGID_3_" width="256" height="256"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+			<rect x="-4" y="-3" class="st2" width="258" height="262"/>
+		</g>
+	</g>
+</g>
+</svg>

@@ -7,9 +7,7 @@
 <script type="text/javascript">
 document.addEventListener(
 	"DOMContentLoaded", () => {
-		const menu = new Mmenu( "#mmenu-custom" );
-		const api = menu.API;
-		
+				
 	    new Mmenu( "#mmenu-custom", {
 			"slidingSubmenus": true,
 			"extensions": [
@@ -46,6 +44,7 @@ document.addEventListener(
 		
 		
 		{# Listen to custom button element for firing the mmenu #}
+{#
 		document.querySelector( "#hamburger" )
                 .addEventListener(
                     "click", ( evnt ) => {
@@ -53,10 +52,19 @@ document.addEventListener(
                         api.open();
                     }
                 );
+#}      
+		{# Using the this as the above was making the sliding menus not work, will have to hide the button #}
+		const primary = document.getElementById("open-menu");
+		document.getElementById('hamburger').addEventListener('click', function() {
+			console.log('anchor');
+			primary.click();      
+		}); 
 	
 	}
 	
 );
+
+
 </script>
 
 

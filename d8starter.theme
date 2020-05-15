@@ -11,6 +11,9 @@ drupal_set_message('OK');
 drupal_set_message('OK2'); 
 */
 
+
+/* Put placeholders on login forms
+*/
 function d8starter_form_user_login_form_alter(&$form, $form_state) {
   $form['name']['#placeholder'] = t('Username or Email');
   $form['pass']['#placeholder'] = t('Password');

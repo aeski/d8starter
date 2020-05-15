@@ -13,10 +13,9 @@
 //@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800');
 // Title Font
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:700,800&display=swap');
-// Body Font
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400&display=swap');
+
 //These Url's need changing to latest google api's.
+
 
 //------------------------------------
 //		Extends
@@ -38,79 +37,10 @@
     }
 }
 
-%reset {
-	margin: 0;
-	padding: 0;
-}
-
-%transition-color{
-	transition: color, $transition-speed;	
-}
-
-.hide{
-	display: none;
-}
-
-
 
 //------------------------------------------------------------------------
-//		Typography
+//		Buttons and links
 //------------------------------------------------------------------------
-%font-smoothing{
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-html {
-	font-size: 62.5%; /* Sets up the Base 10 stuff */
-	-webkit-text-size-adjust: 100%;  // Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
-	-ms-text-size-adjust: 100%;
-}
-
-body{
-	font-family: $body-font;
-	font-size: 1.6rem;
-	line-height: 2.4rem;
-	@extend %font-smoothing;
-}
-
-/*
-em {
-   font-family: 'Quasimoda-Italic', arial, sans-serif;
-   font-weight: normal;
-   font-style: normal;
-}
-*/
-
-h1, h2, h3, h4, h5 { 
-	font-family: $title-font; 
-	font-weight: normal; 
-	font-style: normal;
-}
-
-h1{
-	font-size: 4.5rem;
-	line-height: 4.8rem;
-	margin: 2.4rem 0 2.4rem 0;
-	font-weight: 800;
-}
-
-h2{
-	font-size: 3.6rem;
-	line-height: 1em;
-	text-transform: uppercase;
-	font-weight: 800;
-}
-
-h3{
-	font-size: 1.6rem;
-	margin-bottom: 2rem;
-	margin-top: 1.4rem;
-	color: #000;
-	margin-bottom: 10px;
-	font-weight: $fw-bold;
-}
-
 html, button, input, select, textarea {
 //	font-family: $body-font;
 	color: $main-text-color;
@@ -209,11 +139,18 @@ header{
 	}
 	
 	.logo{
-	max-width: 200px;
+		max-width: 80px;
+//		max-height: 80px;
 		
 		
 		svg{
+			width: 100%;
+			height: auto;
 			@extend %vertical-center;
+			.logoform{
+			//	fill: red;
+			
+			}
 		}
 //		flex: 1;
 	}
@@ -278,7 +215,7 @@ header{
 }
 
 .banner-image{
-	background: url('#{$images}/header-bg.jpg') center 40% no-repeat;
+	background: image('header-bg.jpg') center 40% no-repeat;
 	background-size: cover;
 	height: 300px;
 	position: relative;
@@ -311,10 +248,6 @@ header{
 	}
 }
 
-m-burger{
-	margin-left: auto;
-}
-
 .site-title{
 	font-family: $title-font;
 	font-size: 3.6rem;
@@ -327,37 +260,6 @@ m-burger{
 		text-decoration: none;
 	}
 }
-
-@include breakpoint($mobile){
-	.c-hamburger{
-		display: none;
-	}
-}
-
-//---------------------------
-// Hamburger
-//---------------------------
-#hamburger {
-    margin-left: auto;
-    
-	--mb-bar-height: 3px;
-	--mb-button-size: 50px;
-	--mb-bar-width: .8;
-
-	b{
-		border-radius: 0px;
-	}
-	
-	@include breakpoint($mobile){
-	//	display: none;
-	}
-}
-
-// Change the Admin toolbar padding to support MMenu if it is being used. 
-body.mm-wrapper{
-//	
-}
-
 
 
 //------------------------------------------------------------------------
@@ -424,127 +326,144 @@ $yellow: yellow;
 //------------------------------------------------------------------------
 .region-main-menu{
 	margin-left: auto;
-	//width: 100%;
-	//position: absolute;
-	//bottom: -22px;
-	//left: 0;
-	//display: none;
-	
-	nav{
-		flex-grow: 1;
+	display: none;
+
+	.block-superfish{
+		display: flex;
+		align-content: center;
 	}
 	
-	@include breakpoint(720px){
+	nav{
+//		flex-grow: 1;
+	}
+	
+	@include breakpoint($mobile){
 		display: flex;
 	}
 }
 
-//#block-sass-main-menu,
-//#block-mainnavigation{
-			
-	//ul.menu,
-	ul#superfish-main.sf-menu{
-		@extend %reset;
-		//background: $purple;
-		height: 45px;
+
+//---------------------------
+// Hamburger
+//---------------------------
+#hamburger {
+    margin-left: auto;
+
+    &:focus{
+	    border: 2px solid red;
+    }
+    
+	--mb-bar-height: 3px;
+	--mb-button-size: 50px;
+	--mb-bar-width: .8;
+
+	b{
+		border-radius: 0px;
+	}
+	
+	@include breakpoint($mobile){
+		display: none;
+	}
+}
+
+
+//----------------------------------
+// Main Dropdown Menu styling
+//----------------------------------		
+ul#superfish-main.sf-menu{
+	display: flex;
+	
+	> li:hover > ul,
+	> li.sfHover > ul{
+		top: 45px;
+	}
+	
+	.sf-sub-indicator{
+		display: none;
+	}
+	
+	.sf-sub-indicator::after{
+		content: '+';
+		line-height: .8em;
+	}
+	
+	// Top Level
+	> li{
+		padding: 0;
+		flex-grow: 1;
 		display: flex;
 		
-		> li:hover > ul,
-		> li.sfHover > ul{
-			top: 45px;
+		&.menu-item--collapsed{
+			list-style: none;
+			list-style-image: none;
 		}
 		
-		.sf-sub-indicator{
-			display: none;
+		a{
+			//color: #fff;
+			text-decoration: none;
+			//background: none;
+			//transition: background .3s;
+			font-size: 1.4rem;
+			font-family: $title-font;
+			font-weight: 300;
+			text-transform: uppercase;
+			color: $main-nav-colour;
+			//@extend %font-smoothing;
+			transition: all .2s;
+			
+			&:hover{
+				//background: red;
+			}
 		}
 		
-		.sf-sub-indicator::after{
-			content: '+';
-			line-height: .8em;
-		}
-		
-		// Top Level
-		> li{
-			padding: 0;
+		> a{
+			padding: 0 10px;
 			flex-grow: 1;
 			display: flex;
+			align-items: center;
+			justify-content: center;
 			
-			&.menu-item--collapsed{
-				list-style: none;
-				list-style-image: none;
+			.sf-sub-indicator{
+				right: 2rem;
 			}
+		}
+		
+		// Dropdowns
+		> ul{
+			width: 10em !important;
+			background: $light-grey;
 			
-			a{
-				//color: #fff;
-				text-decoration: none;
-				//background: none;
-				//transition: background .3s;
-				font-size: 1.3rem;
-				font-weight: $fw-bold;
-				text-transform: uppercase;
-				
-				&:hover{
-					//background: red;
-				}
-			}
-			
-			> a{
-				padding: 0 10px;
-				flex-grow: 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				
-				.sf-sub-indicator{
-					right: 2rem;
-				}
-			}
-			
-			> ul{
-				width: 14em;
-				
-				li{
-					a{
-						padding: 8px 15px;
-						border-bottom: 1px solid orange;
-						line-height: 1.2em;
+			li{
+				a{
+					padding: 8px 10px;
+					border-bottom: 1px solid darken($light-grey,5%);
+					line-height: 1.2em;
+					
+					&:hover{
+						text-indent: 5px;
+						background: darken($light-grey,5%);
 					}
 				}
 			}
-			
-			&.active-trail > a,
-			a.is-active{
-					//background: purple;
-					font-weight: bold;
-			}
 		}
 		
-		// link to search page		
-		li#main-menu-link-content7b6e343b-011d-4550-8019-21ce567b30ed,
-		li#main-menu-link-content3cb1a618-c6ad-4392-ab03-fd5dc5d0405a{
-			a{
-				text-indent: -987em;
-				background: url('#{$images}/icon-search.svg') no-repeat center center;
-				background-size: 40% auto;
-				//background: red;
-				
-				&:hover{
-					//background-color: purple;
-				}
-			}
-			
-			@include breakpoint($laptop){ 
-				display: none !important;
-			}
+		&.active-trail > a,
+		a.is-active{
+				//background: $ap-ivory;
+				//font-weight: bold;
 		}
 		
-		// Hide children items on Media releases and Policy
-		li#main-menu-link-content1a063d44-6617-4b69-909a-ec02e5158698 > ul,
-		li#main-menu-link-content2fcbb4e0-d825-41e0-a49f-efe59d4705fe > ul{
-			display: none !important;
+		&.menuparent:hover > a:hover{background: darken($light-grey,5%);}
+		
+		&.menuparent:hover,
+		&.sfHover{
+			> a{
+				background: $light-grey;
+			}
 		}
-	}	
-//}
+	}
+	
+}	
 
 
 //------------------------------------------------------------------------

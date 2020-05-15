@@ -48,45 +48,49 @@
 {# Include the off canvas menu and its javascript #}
 {% include '@d8starter/includes/mobile-menu.html.twig' %}
 
+{% if logged_in %}
+	{{ attach_library('adminski/admin-styling') }}
+{% endif %}
+
 <div id="page">
 	<header role="banner">
 		
 		<div id="nav-bar">
 			<div class="wrapper">
 
-				<a class="logo" href="/" title="logo" alt="Aeski Logo">{{ source(directory ~ '/images/logo.svg') }}</a>
-					
-				{{ page.header }}
+				<a class="logo" href="/" title="logo" alt="D8 Starter Logo" tabindex="-1">{{ source(directory ~ '/images/logo.svg') }}</a>
 
-
-				<button class="mburger mburger--collapse" id="hamburger" aria-label="Open the menu" type="button" aria-controls="navigation" {# aria-expanded="false" #}>
+				<a id="open-menu" href="#mmenu-custom" class="visually-hidden hidden" tabindex="-1">OPEN MENU</a>
+				<button class="mburger mburger--collapse" id="hamburger" aria-label="Open the menu" type="button" aria-controls="navigation">
 					<b></b>
 					<b></b>
 					<b></b>
-    			</button>
-    				
+    			</button>    				
 		
 				{{ page.main_menu }}
 		
 			</div>
 		</div>
 		
+{#
 		<div class="banner-image">
 			<div class="image-overlay"></div>
 		</div>
+#}
 	</header>
 
 	{#{{ page.secondary_menu }}#}
 	{#{{ page.breadcrumb }} #}
+
 	
 	{% if is_front %}
 	
 	<div class="homepage-content">
 		<div class="wrapper">
+			{{ page.messages }}
 			{{ page.content }}
 		</div>
 	</div>
-	
 	{{ page.promoted_content }}
 	{% else %}
 
@@ -94,7 +98,6 @@
 		<div class="wrapper">
 			<a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 			{{ page.messages }}
-			
 			<div class="main-content">
 				{{ page.help }}
 
